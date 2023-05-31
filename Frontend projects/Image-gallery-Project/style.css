@@ -1,0 +1,305 @@
+:root {
+
+    --font-size: 1em;
+    --background-color: #5D1F46;
+    --black:  #101626;
+}
+
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    background:  url(images/Mago\ negro.jpg) ;
+   font-family: 'shojumaru', sans-serif ;
+   color: orange;
+
+}
+.wrapper{
+margin: 0;
+padding: 0;
+}
+
+header 
+ {
+   
+    margin: 0;
+    padding: 0;
+
+ }
+
+ nav
+ {
+    margin: 0;
+    padding: 0;
+ }
+nav ul {
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    justify-content: space-evenly;
+ 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+  nav li{
+   
+    color: orange;
+    background-color: #2D2D61;
+    text-align: center;
+
+
+  }
+
+
+nav li:first-child {
+    padding: 0;
+    flex-basis: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    font-family: 'Reggae One', sans-serif;
+    
+  }
+  nav a {
+    display: block;
+    color: orange;
+   
+  }
+
+  .two, .three {
+ 
+  padding: 0.5rem;
+  text-decoration: none;
+
+
+  }
+  nav li:not(li:first-child){
+
+    border-radius: 5px;
+    border:solid black;
+    background-color: #2D2D61;
+
+  }
+
+  .direction {
+  
+    margin-left: auto;
+    margin-right: 4rem;
+    margin-top: 0.5rem;
+   
+    max-width: 179px;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+
+
+  .LS {
+    border: dotted black;
+   
+       
+    content: "";
+    display: table;
+    clear: both;
+  
+   
+  
+
+   display: flex;
+   gap: 2rem;
+   max-width: 300px;
+   max-height: 450px;
+
+   
+ 
+   
+   
+}
+
+.LS img {
+
+    max-width: 200px;
+    height: 438px;
+
+}
+.l-image {
+    flex-basis: 50%;
+    
+    
+}
+.r-image {
+    flex-basis: 50%;
+   
+}
+
+.LS{
+    position: absolute;
+    top: 160px;
+    left: 100px;
+    max-height: auto;
+    max-width: auto;
+    z-index: -1;
+
+}
+
+
+
+
+  
+
+.section  {
+    display: flex;
+   
+   height: auto;
+    max-width: 600px;
+    min-width: 500px;
+    gap: 40px;
+    margin-right: 4rem;
+    margin-left: auto;
+   
+    margin-top: 1rem;
+    flex-flow: row nowrap;
+    
+   
+   
+ 
+
+}
+.section :last-child(3) {
+    margin-left: 4rem;
+}
+
+
+
+.multi-view {
+    flex-basis: 33%;
+    border: solid black;
+}
+.single-view {
+    flex-basis: 33%;
+    border: solid black;
+    
+    
+   
+    
+}
+.draw {
+    flex-basis: 33%;
+    border: solid black;
+    
+}
+
+.row {
+    display: flex;
+    border: solid black;
+
+}
+
+.multi-view img {
+    width: 100%;
+    
+    
+}
+
+.single-view img {
+    width: 100%;
+    height: 100%;
+    
+}
+.draw img {
+    width: 100%;
+    height: 100%;
+}
+
+.button {
+    display: flex;
+   
+    
+   justify-content: center;
+   flex-flow: row nowrap;
+   max-height: 30px;
+   max-width: 600px;
+   margin-left: auto;
+   margin-right: 4rem;
+    margin-top: 0.5rem;
+    margin-bottom: auto;
+    gap: 2rem;
+   
+}
+.left, .right {
+    height: 100% ;
+    color: purple;
+    font-family: 'Reggae One';
+}
+
+
+
+
+.show {
+    display: none
+}
+
+
+label {
+    display: block;
+}
+
+
+#survey {
+ margin: 0;
+ padding: 0;   
+ width: 80%;
+ margin: 0 auto;
+
+ background-color: red;
+ font-family: 'Shojumaru' Arial;
+}
+
+textarea {
+    width: 20rem;
+    height: 10rem;
+   
+}
+#survey section {
+    margin-left: 0.5rem;
+    margin-top: 2rem;
+}
+
+#survey form, #survey section {
+    color: yellow;
+}
+
+
+ #survey li, #survey a{
+    color: yellow;
+    font-family: 'Reggae One';
+    
+}
+#survey input {
+    margin-bottom: 1rem;
+}
+#survey label {
+    margin-top: 1rem;
+
+}
+#survey .contact{
+    margin-bottom: 2rem;
+}
+#survey button {
+    margin-top: 1rem;
+}
+
+
+
+

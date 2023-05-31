@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+  
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shojumaru">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Reggae+One">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<div class="wrapper" id="survey">
+    
+    <header>
+        <nav>
+
+            <ul> 
+            <li><h1>Yu-gi-oh form</h1> </li>
+            <li><a class="two" href="index.html">Home   </a></li>
+           <li > <a class="three" href="#"> Form </a></li>
+            
+        </ul>
+        </nav>
+        
+    </header>
+
+    <section>
+        <p> fill out the form to contribute to improvements</p>
+
+    </section>
+
+    <form action="POST">
+        <fieldset class="contact">
+            <legend>Your contact information</legend>
+            <label for="name">Your name </label>
+            <input type="text" id="name" name="name" autofocus>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+
+        </fieldset>
+      
+
+
+        <fieldset> 
+            <legend> Yu-gi-oh information</legend>
+
+            <label for="fav">what was your favourite card in the gallery</label>
+            <select name="fav" id="fav">
+            <option selected> Select One</option>
+            <option value="CHANGE OF HEART"> CHANGE OF HEART</option>
+            <option value="RAIGEKI BREAK">RAIGEKI BREAK</option>
+            <option value="MONSTER REBORN">MONSTER REBORN</option>
+            <option value="DARK HOLE">DARK HOLE</option>
+            <option value="ELEMENTAL HERO WILDEDGE">ELEMENTAL HERO WILDEDGE</option>
+            <option value="POT OF GREED">POT OF GREED</option>
+            <option value="CYBER BARRIER DRAGON">CYBER BARRIER DRAGON</option>
+            <option value="ELEMENTAL HERO BURSTINATRIX">ELEMENTAL HERO BURSTINATRIX</option>
+            <option value="ELEMENTAL HERO MARINER">ELEMENTAL HERO MARINER</option>
+            <option value="CYBER DRAGON">CYBER DRAGON</option>
+            <option value="CYBER HARPIE LADY">CYBER HARPIE LADY</option>
+            <option value="SKYSCRAPER">SKYSCRAPER</option>
+            </select>
+
+             <p>  Do you own the chosen card  </p>
+
+             <label >
+                
+                <input type="radio" name="own" value="yes"> yes
+             </label>
+
+             <label >
+                <input type="radio" name="own" value="no"> no
+             </label> 
+
+
+
+             <label for="qty"> How many of that chosen card do you own</label>
+             <input type="number" id="qty" name="qty">
+
+
+             <label for="feedback" name="feedback"> Any feedback for the website</label>
+             <textarea name="feedback" id="feedback"></textarea>
+            
+             <div>
+
+                 <button class="f-button">
+                Submit
+            </button>
+
+             </div>
+           
+
+        </fieldset>
+
+
+
+
+
+
+
+
+    </form>
+
+
+
+</div>
+    
+</body>
+</html>
