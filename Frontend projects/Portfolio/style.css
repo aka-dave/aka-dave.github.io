@@ -1,0 +1,345 @@
+/* variables declared here - these are the colors for our pages, as well as the font stacks and sizes. */
+:root {
+    --black: #171321;
+    --dkblue: #0d314b;
+    --plum: #4b0d49;
+    --hotmag: #ff17e4;
+    --magenta: #e310cb;
+    --aqua: #86fbfb;
+    --white: #f7f8fa;
+    --font-size: 1.3rem;
+    --mono: "Oxygen mono", monospace;
+    --sans: Oxygen, sans-serif;
+    --ds: "Dancing Script";
+}
+/* border box model: https://css-tricks.com/box-sizing/ */
+html {
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+/* generic styles for the page */
+body {
+    padding: 0;
+    margin: 0;
+    font-family: var(--sans);
+    background-color: var(--black);
+    color: var(--white);
+    font-size: var(--font-size);
+}
+
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+
+a {
+    color: rgb(11, 226, 11);
+    text-decoration: none;
+}
+
+#intro a {
+  text-decoration: underline;
+}
+#intro a:hover {
+  text-decoration: none;
+}
+a:hover {
+    color: var(--aqua);
+    
+}
+/* intro styles */
+#intro {
+    padding-bottom: 10rem;
+}
+
+#intro p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+#intro .name {
+    font-family: var(--mono);
+    font-size: 1rem;
+}
+
+#intro {
+  border-top: solid green;
+  
+}
+
+
+.name span {
+    font-family: var(--sans);
+    font-size: 4rem;
+    color: var(--aqua);
+    display: block;
+    font-weight: 300;
+}
+
+#intro h2 {
+    font-size: 4rem;
+}
+
+#contact {
+    width: 400px;
+    text-align: center;
+    margin: 0 auto;
+  padding: 3rem 0;
+}
+
+#contact p:last-child {
+    margin-top: 3rem;
+}
+
+header {
+  background-color: #1b2e3f;
+}
+
+/* navigation */
+nav {
+    font-family: var(--mono);
+    font-size: 80%;
+    padding: 1rem;
+
+    background-color: #1b2e3f;
+    margin: 0;
+  }
+  
+  nav h1 a {
+    font-family: var(--sans);
+  }
+  
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center; /* alligns items on the cross axis*/
+    gap: 2rem;
+    background-color: #1b2e3f;
+  }
+  nav li:first-child {
+    flex-basis: 100%;
+   
+  }
+  
+  nav li{
+   
+  }
+
+  nav a:hover {
+    color: green;
+  }
+  nav [class*="fa-"] {
+    font-size: 150%;
+    color: var(--aqua);
+}
+nav h1 [class*="fa-"] {
+    font-size: 100%;
+    color: var(--aqua);
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+
+nav a:hover,
+nav [class*="fa-"]:hover {
+  color: rgb(11, 226, 11);
+}
+
+.button {
+    background-color: green;
+    color: white;
+    padding: 0.5rem;
+    border-radius: 5px;
+  }
+  
+  .button:hover {
+    color: white;
+    background-color: orange;
+  }
+  #projects {
+    background-color: #1b2e3f;
+    border-top: solid green;
+    border-bottom: solid green;
+  }
+
+ 
+
+  .proj-title
+
+  {
+
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+   
+
+  }
+
+  #projects h2:not( #projects .proj-title) {
+
+      margin-bottom: 2rem;
+      margin-left: 2rem;
+  }
+
+  #projects h3 {
+    text-align: right;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+  }
+
+
+
+  .proj-frontend {
+    margin: 0;
+    padding: 0;
+    display: flex;
+ 
+   flex-flow: nowrap;
+    margin-bottom: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    border: var(--aqua) solid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    padding: 0.8rem;
+    gap: 2rem;
+    width: 97%;
+
+   
+  }
+
+.proj {
+    display: flex;
+    flex-flow: nowrap;
+    margin-bottom: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    border: var(--aqua) solid;
+   padding: 0.8rem;
+   gap: 2rem;
+   width: 97%;
+  
+  }
+
+
+  .proj-frontend .valid-left {
+    flex-basis: 50%;
+    
+   
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+  
+  .proj .valid-left {
+  
+  flex-basis: 50%;
+  
+ 
+  align-items: center;
+  }
+
+  .proj .valid-right, .proj-frontend .valid-right{
+    flex-basis: 50%;
+  
+    align-items: center;
+    
+
+  }
+
+
+  #projects img{
+  
+    max-width: 100%;
+   font-size: 90%;
+
+
+  }
+
+
+
+  footer {
+    text-align: center;
+}
+footer ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 2rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 3rem;
+    font-size: 3rem;
+    
+    
+    
+  
+} 
+
+
+
+#about-me h1 {
+  margin-top: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
+}
+#about-me h2{
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+#about-me .coding-ex {
+  margin-bottom: 2rem;
+}
+
+#about-me .background {
+  margin-bottom: 4rem;
+}
+#about-me .hobbies {
+  
+  margin-bottom: 4rem;
+}
+
+
+@media(max-width: 800px) {
+  .proj, .proj-frontend {
+   text-align: center;
+   align-items: center;
+    display: block;
+    ;
+  }
+      
+    
+    }
+  @media (min-width: 850px) {  /* respnsive */
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    nav li:first-child {
+        flex-basis: auto;
+       
+        margin-right: auto;
+      }
+    }
+
+ 
+    
