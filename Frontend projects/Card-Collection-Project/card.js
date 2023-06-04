@@ -63,11 +63,13 @@ for(let i = 0; i<galleryImgs.length; i++){
 
           if (galleryImgs.length === currentlySelected + 1) {
             nextBtn.disabled = true;
+            prevBtn.disabled = false;
         }
 
 
         if(currentlySelected === 0) {
             prevBtn.disabled = true;
+            nextBtn.disabled = false;
         }
 
     }
