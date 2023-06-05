@@ -34,13 +34,13 @@
 
     </section>
 
-    <form action="POST">
+    <form method="POST"  action="submitted.html" id="person">
         <fieldset class="contact">
             <legend>Your contact information</legend>
             <label for="name">Your name </label>
-            <input type="text" id="name" name="name" autofocus>
+            <input type="text" id="name" name="name" autofocus required minlength="1">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required minlength="8">
 
         </fieldset>
       
@@ -50,7 +50,7 @@
             <legend> Yu-gi-oh information</legend>
 
             <label for="fav">what was your favourite card in the gallery</label>
-            <select name="fav" id="fav">
+            <select name="fav" id="fav" required>
             <option selected> Select One</option>
             <option value="CHANGE OF HEART"> CHANGE OF HEART</option>
             <option value="RAIGEKI BREAK">RAIGEKI BREAK</option>
@@ -70,17 +70,17 @@
 
              <label >
                 
-                <input type="radio" name="own" value="yes"> yes
+                <input type="radio" required name="own" value="yes" class="people"> yes
              </label>
 
              <label >
-                <input type="radio" name="own" value="no"> no
+                <input type="radio" required name="own" value="no" class="people"> no
              </label> 
 
 
 
              <label for="qty"> How many of that chosen card do you own</label>
-             <input type="number" id="qty" name="qty">
+             <input type="number" id="qty" name="qty" required>
 
 
              <label for="feedback" name="feedback"> Any feedback for the website</label>
@@ -109,6 +109,8 @@
 
 
 </div>
+
+<script src="sub.js"></script>
     
 </body>
 </html>

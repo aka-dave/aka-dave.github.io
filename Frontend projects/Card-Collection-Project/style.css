@@ -24,6 +24,23 @@ body {
    color: orange;
 
 }
+
+.s {
+    margin: 0;
+    padding: 1rem;
+    background-color: red;
+
+height: 100vh;
+text-align: center;
+}
+
+.info {
+
+    margin:0;
+    padding: 0;
+    color: white;
+}
+
 .wrapper{
 margin: 0;
 padding: 0;
