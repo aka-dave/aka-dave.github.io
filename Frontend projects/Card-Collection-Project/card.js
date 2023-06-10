@@ -1,10 +1,21 @@
+
+
 const prevBtn = document.querySelector('.left');
 const nextBtn = document.querySelector('.right');
 const galleryImgs = document.querySelectorAll('.multi-view img');
 const singleView = document.querySelector('.single-view img');
 var cardNames = ['Dark Magician', 'Cyber Dragon', 'JetRoid', 'MechanicalChaser', 'Future Fusion'];
 const card = document.querySelector('.draw img');
+const a = document.querySelectorAll('.multi-view a')
+const adr = document.querySelector('.draw a');
+
+
 var counter = [0];
+
+
+
+
+
 
 
 
@@ -37,6 +48,9 @@ async function drawCard() {
 }
 
 card.addEventListener("click", drawCard);
+adr.addEventListener("click", function(e) {
+    e.preventDefault();
+})
 
 
 
@@ -47,6 +61,13 @@ if(currentlySelected === 0) {
     prevBtn.disabled = true;
 }
 for(let i = 0; i<galleryImgs.length; i++){
+
+    a[i].addEventListener('click', function(event){
+        event.preventDefault();
+
+    });
+
+
 
     galleryImgs[i].addEventListener('click', function(event){
         currentlySelected = Number(event.target.id ) - 1;
@@ -109,4 +130,17 @@ nextBtn.addEventListener('click', function() {
 
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
 
