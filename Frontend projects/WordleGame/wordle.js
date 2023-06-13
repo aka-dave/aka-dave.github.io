@@ -22,8 +22,8 @@ async function init() {
 
   // nab the word of the day
   const res = await fetch("https://words.dev-apis.com/word-of-the-day");
-  const { word: wordRes } = await res.json();
-  const word = wordRes.toUpperCase();
+  const resObject = await res.json();
+  const word = resObject.word.toUpperCase();
   const wordParts = word.split("");
   isLoading = false;
   setLoading(isLoading);
@@ -55,7 +55,8 @@ async function init() {
       method: "POST",
       body: JSON.stringify({ word: currentGuess }),
     });
-    const { validWord } = await res.json();
+    const resObject = await res.json();
+    const validWord = resObject.validWord;
     isLoading = false;
     setLoading(isLoading);
 
