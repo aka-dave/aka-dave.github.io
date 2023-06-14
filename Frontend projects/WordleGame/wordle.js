@@ -6,13 +6,13 @@ const container = document.querySelector('.end');
 const buttons = document.querySelectorAll('button');
 let letters = document.querySelectorAll(".scoreboard-letter");
 
-// I like to do an init function so I can use "await"
+
 
 
 async function init() {
    
 
-        // the state for the app
+        
   let currentRow = 0;
   let currentGuess = "";
   let done = false;
@@ -20,7 +20,7 @@ async function init() {
   
   
 
-  // nab the word of the day
+  // word of the day
   const res = await fetch("https://words.dev-apis.com/word-of-the-day");
   const resObject = await res.json();
   const word = resObject.word.toUpperCase();
