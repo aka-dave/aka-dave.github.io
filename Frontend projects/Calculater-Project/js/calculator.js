@@ -116,7 +116,7 @@ function flushOperation(intBuffer) {
     else {
         if(previousOperator === '÷'){
 
-            if(runningTotal%intBuffer != 0) {
+            if(runningTotal % intBuffer != 0) {
 
             let temp = runningTotal/intBuffer // making sure recurring digits fit to screen
             temp = temp.toFixed(14)
