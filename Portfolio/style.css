@@ -206,7 +206,7 @@ nav [class*="fa-"]:hover {
 
 
 
-  .proj-frontend {
+  .proj-frontend, .proj-fullstack {
     margin: 0;
     padding: 0;
     display: flex;
@@ -243,7 +243,7 @@ nav [class*="fa-"]:hover {
   }
 
 
-  .proj-frontend .valid-left {
+  .proj-frontend .valid-left, .proj-fullstack .valid-left {
     flex-basis: 50%;
     
    
@@ -260,7 +260,7 @@ nav [class*="fa-"]:hover {
   align-items: center;
   }
 
-  .proj .valid-right, .proj-frontend .valid-right{
+  .proj .valid-right, .proj-frontend .valid-right, .proj-fullstack .valid-right{
     flex-basis: 50%;
   
     align-items: center;
