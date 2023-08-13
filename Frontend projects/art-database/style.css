@@ -100,7 +100,7 @@ nav li:not(li:first-child){
     gap: 32rem;
     justify-content: end;
     background-color: grey;
-    
+    font-family: 'Signika Negative', sans-serif;
    
 
 
@@ -245,6 +245,7 @@ nav li:not(li:first-child){
     width: 560px;
     margin-bottom: 1rem;
     padding-left: 10rem;
+ 
   }
 
   .LS {
@@ -443,6 +444,26 @@ nav li:not(li:first-child){
     color: purple;
 }
 
+@keyframes spin {
+    to{
+        transform: rotateZ(360deg);
+    }
+    
+}
+
+.loading {
+    text-align: center;
+    animation: 2s spin linear infinite;
+    margin-top: 5px;
+    display: none;
+ 
+
+    
+}
+
+.start {
+    display: block;
+}
 
 
 
@@ -461,18 +482,21 @@ nav li:not(li:first-child){
 .direction {
 
     height: 91px;
+    width: 187px;
 }
 
 .artName {
     padding-left: 0;
     max-width: 281px;
+    max-height: 120px;
+  
 }
 
 .textContainer {
 
     max-height: 92px;
     gap: 16rem;
-    font-family: 'Signika Negative', sans-serif;
+  
 
 
 
@@ -496,6 +520,8 @@ nav li:not(li:first-child){
     .artName {
         padding-left: 10px;
         width: 560px;
+        max-height: 100%;
+       
     }
     .textContainer {
         gap: 32rem;

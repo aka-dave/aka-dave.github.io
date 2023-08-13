@@ -15,6 +15,7 @@ const platform = document.querySelector('.platform');
 const artImage = document.querySelector('.second img');
 const cardSearch = document.querySelector('.cardSearch button');
 
+var loader = document.querySelector('.loading');
 var results = document.querySelector('.results');
 var resultText = document.querySelector('.results p');
 
@@ -315,6 +316,10 @@ function update () {
     
     
     });
+
+
+
+    loader.classList.remove('start');
     
     
 
@@ -354,6 +359,8 @@ function update () {
                 resultText.innerHTML = "We couldn't find any results, maybe try removing the text so that you can see the artist's full range of art"
                 results.classList.add('.no-results');
 
+                loader.classList.remove('start');
+
                 return
     }
 
@@ -361,6 +368,8 @@ function update () {
         artist = resIMG[0].name;
 
         state++;
+
+      
 
 
         if(state == 1){
@@ -588,6 +597,8 @@ async function justAuthor(author){
                 resultText.innerHTML = "We couldn't find any results, maybe try removing the text so that you can see the artist's full range of art"
                 results.classList.add('.no-results');
 
+                loader.classList.remove('start');
+
 
  
                 return
@@ -596,8 +607,10 @@ async function justAuthor(author){
             }
 
             else{
+                
 
                 state++;
+              
 
                 if(state == 1){
                     card.removeEventListener('click', drawCard);
@@ -672,9 +685,13 @@ async function justAuthor(author){
     }
 }
 
+
+
 const urlIMG = `https://cardbackend-48584104be46.herokuapp.com/api/Author/ImagesAll?person=${author}`;  // handling the images
 var promiseIMG = await fetch(urlIMG);
 var resIMG = await promiseIMG.json();
+
+
 
 
 handleImages(resIMG);
@@ -800,6 +817,8 @@ async function nameAndCard(author, enterCard) {
                 resultText.innerHTML = "We couldn't find any results, maybe try removing the text so that you can see the artist's full range of art"
                 results.classList.add('.no-results');
 
+                loader.classList.remove('start');
+
 
  
                 return
@@ -810,6 +829,7 @@ async function nameAndCard(author, enterCard) {
             else{
 
                 state++;
+                
 
                 
         if(state == 1){
@@ -1243,6 +1263,7 @@ cardSearch.addEventListener('click', function() {
     // alert(author.value)
 
         if(author.value!= 'Select One' && enterCard.value!= ''){
+            loader.classList.add('start');
            
 
             // alert("name and card");
@@ -1256,6 +1277,7 @@ cardSearch.addEventListener('click', function() {
         }
 
         if(enterCard.value!= '' && author.value == 'Select One') {
+            loader.classList.add('start');
 
 
             // alert("just card");
@@ -1264,10 +1286,18 @@ cardSearch.addEventListener('click', function() {
         }
 
         if(author.value!= 'Select One' && enterCard.value == ''){
+            loader.classList.add('start');
 
             // alert("just author");
             justAuthor(author.value);
         }
+
+        if(author.value == 'Select One' && enterCard.value == ''){
+            alert('select an author')
+
+
+        }
+        
         
 
 })
