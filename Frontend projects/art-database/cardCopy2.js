@@ -15,6 +15,11 @@ const platform = document.querySelector('.platform');
 const artImage = document.querySelector('.second img');
 const cardSearch = document.querySelector('.cardSearch button');
 
+wrapperDiv = document.querySelector('.screen');
+containerDiv = document.querySelector('.container');
+sectionDiv = document.querySelector('.section');
+
+
 var loader = document.querySelector('.loading');
 var results = document.querySelector('.results');
 var resultText = document.querySelector('.results p');
@@ -34,6 +39,30 @@ var state = 0;
 
 
 var counter = [0];
+
+
+function orderChange(x) {
+
+    if(x.matches){
+        
+        
+        wrapperDiv.insertBefore(containerDiv, sectionDiv);
+    }
+    
+    else{
+    
+      
+        
+    
+    
+         wrapperDiv.insertBefore(sectionDiv, containerDiv);
+    
+    }
+    }
+    
+    var maxWidth = window.matchMedia("(min-width: 700px)");
+    orderChange(maxWidth);
+    maxWidth.addEventListener('change', orderChange);
 
 
 

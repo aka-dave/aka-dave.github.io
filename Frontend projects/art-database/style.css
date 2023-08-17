@@ -95,6 +95,7 @@ nav li:not(li:first-child){
 
 .textContainer {
     border: green solid;
+    margin-bottom: 0;
 
     display: flex;
     gap: 32rem;
@@ -361,6 +362,8 @@ nav li:not(li:first-child){
     text-align: center;
     align-items: center;
     
+
+    
     
 
     
@@ -502,6 +505,31 @@ nav li:not(li:first-child){
 
 }
 }
+
+@media screen and (max-width: 700px ) {
+
+    .screen{
+
+        display: block;
+
+
+
+    }
+
+    .section{
+        max-height: 345px;
+        margin-bottom: 4rem;
+        overflow: auto;
+    }
+
+    .container {
+
+        max-height: 345px;
+    }
+
+
+}
+
 @media screen and (min-width: 700px) {
     .section {
 
