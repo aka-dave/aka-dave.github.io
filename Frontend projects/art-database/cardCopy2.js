@@ -75,72 +75,44 @@ function orderChange(x) {
 
 
 
-async function drawCard() {
-const url = `https://cardbackend-48584104be46.herokuapp.com/api/author/default/card_images`
-  const promise = await fetch(url)
-    const processedResponse = await promise.json();
+    async function drawCard() {
 
 
-     num = Math.floor(Math.random() * processedResponse.length);
-    if(unique.length == processedResponse.length){
-        alert('You have reached the end of the deck')
-        card.src = "images/faceDownCardNEW1.jpg" 
-        counter[0] = 0;
-        unique = [];
-        num = 0;
-
-        
-    }
-    else {
-        if(counter[0] == 0){
-            num = 0;
-            
-            unique.push(num);
-            counter[0] = counter[0] + 1;
-
-         }
-
-
-            
-            if(!unique.includes(num)){
-                unique.push(num);
-                
-
-            }
-            else {
-                start = num;
-
-                while(unique.includes(start)){
-                num = Math.floor(Math.random() * processedResponse.length);
-                if(!unique.includes(num)){
-                unique.push(num);
-                break;
-                }
-                
-                
-
-                }
-
-            }
-
-        
-
-
-
-        
-    card.src = processedResponse[num].card_url;
+        const url = `https://cardbackend-48584104be46.herokuapp.com/api/author/default/card_images`
+       
+        if(resCardIMG.length == 0){
+          
     
-
-
-
+            alert('You have reached the end of the deck')
+            card.src = "images/faceDownCardNEW1.jpg" 
+            var p = await fetch(url);
+            resCardIMG =  await p.json()
+        }
+        else {
+    
+    
+            
+            
+    
+            
+            var  num = Math.floor(Math.random() * resCardIMG.length)
+    
+            card.src = resCardIMG[num].card_url;
+            resCardIMG.splice(num, 1);
+    
+        
+    
+    
+    
+           
+        
+        }
        
     
+    
+    
     }
-   
-
-
-
-}
+    
 
 
 
@@ -226,6 +198,16 @@ function drawCardCategory() {
 
 }
 
+async function initialFetch()  {
+
+    const url = `https://cardbackend-48584104be46.herokuapp.com/api/author/default/card_images` 
+const promise = await fetch(url)
+ resCardIMG = await promise.json();
+
+
+}
+
+initialFetch();
 
 
 card.addEventListener("click", drawCard);
