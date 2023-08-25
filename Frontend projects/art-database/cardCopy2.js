@@ -125,8 +125,6 @@ const url = `https://cardbackend-48584104be46.herokuapp.com/api/author/default/c
 
         
 
-        alert(num)
-
 
 
         
