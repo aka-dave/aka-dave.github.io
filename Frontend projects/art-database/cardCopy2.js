@@ -15,9 +15,12 @@ const platform = document.querySelector('.platform');
 const artImage = document.querySelector('.second img');
 const cardSearch = document.querySelector('.cardSearch button');
 
+
 wrapperDiv = document.querySelector('.screen');
 containerDiv = document.querySelector('.container');
 sectionDiv = document.querySelector('.section');
+
+
 
 
 var loader = document.querySelector('.loading');
@@ -25,6 +28,7 @@ var results = document.querySelector('.results');
 var resultText = document.querySelector('.results p');
 
 var artist;
+var searchName;
 var des;
 
 var DesName;
@@ -39,6 +43,9 @@ var state = 0;
 
 
 var counter = [0];
+var unique = [];
+var num = 0;
+var start;
 
 
 function orderChange(x) {
@@ -46,7 +53,7 @@ function orderChange(x) {
     if(x.matches){
         
         
-        wrapperDiv.insertBefore(containerDiv, sectionDiv);
+        wrapperDiv.insertBefore(containerDiv, sectionDiv);    // using css in javascript
     }
     
     else{
@@ -68,40 +75,83 @@ function orderChange(x) {
 
 
 
-
-
-
-
-
 async function drawCard() {
-    
-    const URL = `https://db.ygoprodeck.com/api/v7/cardinfo.php?name=${cardNames[counter[0]]}`
-    
-    if(counter[0] == cardNames.length){
+const url = `https://cardbackend-48584104be46.herokuapp.com/api/author/default/card_images`
+  const promise = await fetch(url)
+    const processedResponse = await promise.json();
+
+
+     num = Math.floor(Math.random() * processedResponse.length);
+    if(unique.length == processedResponse.length){
         alert('You have reached the end of the deck')
         card.src = "images/faceDownCardNEW1.jpg" 
         counter[0] = 0;
+        unique = [];
+        num = 0;
+
         
     }
     else {
-         const promise = await fetch(URL)
-    const processedResponse = await promise.json();
+        if(counter[0] == 0){
+            num = 0;
+            
+            unique.push(num);
+            counter[0] = counter[0] + 1;
 
-    card.src = processedResponse.data[0].card_images[0].image_url;
+         }
 
-    counter[0] = counter[0] + 1;
+
+            
+            if(!unique.includes(num)){
+                unique.push(num);
+                
+
+            }
+            else {
+                start = num;
+
+                while(unique.includes(start)){
+                num = Math.floor(Math.random() * processedResponse.length);
+                if(!unique.includes(num)){
+                unique.push(num);
+                break;
+                }
+                
+                
+
+                }
+
+            }
+
+        
+
+        alert(num)
+
+
+
+        
+    card.src = processedResponse[num].card_url;
+    
+
+
+
+       
     
     }
    
 
 
 
-
 }
+
+
+
+
+
 
 async function drawCardOther() {
 
-var url = `https://cardbackend-48584104be46.herokuapp.com/api/Author/ImagesAll?person=${artist}`
+var url = `https://cardbackend-48584104be46.herokuapp.com/api/Author/ImagesAll?person=${artist}`    // if the category is other
     if(resCardIMG.length == 0){
 
         alert('You have reached the end of the deck')
@@ -123,6 +173,37 @@ var url = `https://cardbackend-48584104be46.herokuapp.com/api/Author/ImagesAll?p
 
 
 }
+
+
+
+async function drawCardOtherPartial() {
+
+     
+    var url = `https://cardbackend-48584104be46.herokuapp.com/api/author/images?person=${artist}&title=${searchName}`;     // if the category is other
+ 
+
+
+        if(resCardIMG.length == 0){
+    
+            alert('You have reached the end of the deck')
+            card.src = "images/faceDownCardNEW1.jpg" 
+            var p = await fetch(url);
+            resCardIMG =  await p.json()
+            
+        }
+    
+        else {
+    
+    
+                var  num = Math.floor(Math.random() * resCardIMG.length)
+    
+                card.src = resCardIMG[num].art_url;
+                resCardIMG.splice(num, 1);
+    
+        }
+    
+    
+    }
 
 function drawCardCategory() {
 
@@ -363,7 +444,7 @@ function update () {
 
  async function justName(enterCard) {
 
-    var c = document.querySelector('.no-results');
+    var c = document.querySelector('.no-results');   // reseting the rrsults box
 
     if(c != 'undefined') {
 
@@ -412,10 +493,11 @@ function update () {
            nextBtn.removeEventListener('click', nextF);
            card.removeEventListener('click', drawCardCategory);
            card.removeEventListener('click', drawCardOther);
+           card.removeEventListener('click', drawCardOtherPartial);
     
         
         results.style.display = 'block';
-        resultText.innerHTML = `Displaying results for ${enterCard}`
+        resultText.innerHTML = `Displaying ${resIMG.length} results for ${enterCard}`
       
 
     }
@@ -652,6 +734,7 @@ async function justAuthor(author){
                nextBtn.removeEventListener('click', nextF);
                card.removeEventListener('click', drawCardCategory);
                card.removeEventListener('click', drawCardOther);
+               card.removeEventListener('click', drawCardOtherPartial);
            
               
                 
@@ -872,11 +955,12 @@ async function nameAndCard(author, enterCard) {
         nextBtn.removeEventListener('click', nextF);
         card.removeEventListener('click', drawCardCategory);
         card.removeEventListener('click', drawCardOther);
+        card.removeEventListener('click', drawCardOtherPartial);
 
                         
                 
                 results.style.display = 'block';
-                resultText.innerHTML = `Displaying results for ${enterCard}`
+                resultText.innerHTML = `Displaying ${resIMG.length} results for ${enterCard}`
                 des = document.querySelectorAll('.artName li');
     
 
@@ -886,8 +970,8 @@ async function nameAndCard(author, enterCard) {
 
             }
 
-
-            const urlCard_images = `https://cardbackend-48584104be46.herokuapp.com/api/author/card_images?title=${enterCard}`;  // handling the draw card 
+            // for the exact match case
+            if(resIMG[0].match == 'exact') {const urlCard_images = `https://cardbackend-48584104be46.herokuapp.com/api/author/card_images?title=${enterCard}`;  // handling the draw card 
                                                                                        
             const promiseCardIMG = await fetch(urlCard_images);
              resCardIMG = await promiseCardIMG.json();
@@ -923,7 +1007,63 @@ async function nameAndCard(author, enterCard) {
             
             
 
+    }}
+
+    if(resIMG[0].match == 'exact') {const urlCard_images = `https://cardbackend-48584104be46.herokuapp.com/api/author/card_images?title=${enterCard}`;  // handling the draw card 
+                                                                                       
+            const promiseCardIMG = await fetch(urlCard_images);
+             resCardIMG = await promiseCardIMG.json();
+
+             if(resCardIMG.length!= 0) {
+
+            if(resCardIMG[0].category != "other") { 
+
+
+                
+        
+                card.addEventListener('click', drawCardCategory);
+        
+        
+
+            }
+
+            else {
+
+
+                card.addEventListener('click', drawCardOther);
+
+
+
+
+            }
+
+
+
+           
+
+
+            
+            
+
+    }}
+
+    else {     // if the match is partial
+
+        var url = `https://cardbackend-48584104be46.herokuapp.com/api/author/images?person=${author}&title=${enterCard}`; 
+        var promiseCardIMG = await fetch(url);
+        resCardIMG = await promiseCardIMG.json();
+    
+
+        searchName = enterCard
+        
+       card.addEventListener('click', drawCardOtherPartial);
+
+
+
     }
+
+
+            
 
 
     handleImages(resIMG);
