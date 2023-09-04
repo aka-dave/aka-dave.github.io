@@ -51,7 +51,7 @@ nav li:first-child {
     padding: 0;
     flex-basis: 100%;
     text-align: center;
-    margin-bottom: 0.5rem;
+   
 
   }
 
@@ -89,19 +89,21 @@ nav li:not(li:first-child){
 
     display: inline-block;
     text-align: left;
-    color: #2F1259;
+    /* color: #2F1259; */
+    color: white;
 
 }
 
 .textContainer {
     border: green solid;
-    margin-bottom: 0;
 
     display: flex;
     gap: 32rem;
     justify-content: end;
-    background-color: grey;
+    /* background-color: grey; */
+    background-color: rgb(32, 29, 29);
     font-family: 'Signika Negative', sans-serif;
+    margin-bottom: 1rem;
    
 
 
@@ -109,10 +111,12 @@ nav li:not(li:first-child){
 
 .artName {
     border: black solid;
-    background-color: rgb(219, 213, 213);
+    /* background-color: rgb(219, 213, 213); */
+    background-color: #2F1259;
     border-radius: 5px;
    
     margin: 0;
+    color: orange;
 
 
 
@@ -125,6 +129,7 @@ nav li:not(li:first-child){
     padding: 1rem 0;
     background-color: rgb(123, 123, 155);
     text-align: center;
+   
     
     
    
@@ -137,13 +142,14 @@ nav li:not(li:first-child){
     border: black solid;
     border-radius: 5px;
   margin: 0;
-  color: #2F1259;
-  background-color: rgb(219, 213, 213);
-    
+  /* color: #2F1259; */
+  /* color: orange; */
+  color: white;
+  /* background-color: rgb(219, 213, 213); */
+ background-color: #2F1259;
 
  
  
-  max-width: 179px;
   text-align: center;
 
 }
@@ -152,10 +158,17 @@ nav li:not(li:first-child){
 
   .platform {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
     list-style: none;
-    justify-content: space-evenly;
+  justify-content: center;
+    
+    gap: 5rem;
     border: solid green;
+    overflow: auto;
+    background-color: #2D2D61;
+    padding: 1rem 0;
+    /* background-color: #00374E; */
+  
 
   }
 
@@ -169,7 +182,8 @@ nav li:not(li:first-child){
   .platform li a {
     display: block;
 
-    color: black ;
+    color: white;
+
   
     
    
@@ -190,6 +204,7 @@ nav li:not(li:first-child){
   .search-tiltle {
 
     text-align: center;
+    margin-top: 0.4rem;
     margin-bottom: 1rem;
     color: orange;
    
@@ -203,6 +218,7 @@ nav li:not(li:first-child){
     background-color: #2F1259;
     border-top: solid black;
     border-bottom: solid black;
+    margin-bottom: 1rem;
 
   }
 
@@ -246,6 +262,7 @@ nav li:not(li:first-child){
     width: 560px;
     margin-bottom: 1rem;
     padding-left: 10rem;
+
  
   }
 
@@ -312,11 +329,12 @@ nav li:not(li:first-child){
   
     
   
-    border:  2px dotted black;
+  
     margin-top: 0;
 
 
     flex-basis: 45%;
+    padding: 0;
 
  
     
@@ -337,7 +355,7 @@ nav li:not(li:first-child){
     flex-basis: 45%;
 
 
-    border: black solid;
+ 
     
    
 
@@ -356,17 +374,28 @@ nav li:not(li:first-child){
 
 .multi-view {
    
-    border: dotted blue;
-    margin-bottom: 0;
-    padding: 0;
-    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    
+    justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
+  
+   
+     /* Add this to enable scrolling when content overflows */
+  
+    /* Adjust the maximum height based on your needs */
+    
+    
     
 
     
     
+}
 
-    
+.multi-view div {
+    padding: 0;
     
 }
 .single-view {
@@ -384,7 +413,7 @@ nav li:not(li:first-child){
 
 .row {
     display: flex;
-    border: dotted green;
+   
     margin: 0;
     padding: 0;
     min-height: 76px;
@@ -395,6 +424,8 @@ nav li:not(li:first-child){
 
 .multi-view img {
     width: 100%;
+    height: 100%;
+    padding: 0;
   
 
     
@@ -412,12 +443,16 @@ nav li:not(li:first-child){
 
 .screen {
     display: flex;
-    border: solid orange ;
+  
     flex-flow: nowrap;
-    background-color: rgb(219, 213, 213);
+    /* background-color: rgb(219, 213, 213); */
+    background-color: #5C0C26;
+    /* background-image: url(images/Mago\ negro.jpg); */
+
    
    justify-content: space-between;
     max-height: 345px;
+    border: dotted black;
     
 }
 
@@ -441,10 +476,41 @@ nav li:not(li:first-child){
     margin-top: 0.25rem;
     margin-bottom: auto;
     gap: 2rem;
+    padding-bottom: 1rem;
+
+    
+   
 }
 .left, .right {
     height: 100% ;
     color: purple;
+}
+
+footer {
+
+     border-top: solid black;    /* footer for max width of 700px has 25rem margin top */
+    margin-bottom: 0;
+    margin-top: 2rem;
+    padding: 1rem 0;
+     
+    
+    border-width: 5px;
+    background-color: #2F1259;
+}
+
+#contact {
+   
+    text-align: center;
+    /* background-color: #808080; */
+    /* background-color: #7B7B9B; */
+    background-color: #2F1259;
+    color: orange;
+    
+}
+
+#contact a {
+
+    color: white;
 }
 
 @keyframes spin {
@@ -474,6 +540,34 @@ nav li:not(li:first-child){
     display: none
 }
 
+
+
+
+@keyframes moveLeftToRight {
+    0% {
+        transform: translateX(0); /* Start from initial position */
+    }
+    100% {
+        transform: translateX(100%); /* Move to the right */
+    }
+}
+
+
+
+
+
+/* Apply the animation to the .platform li elements */
+.platform li {
+/* ... other styling properties ... */
+animation: moveLeftToRight 7s linear ; /* 5 seconds duration, linear easing, infinite loop */
+}
+
+
+
+
+
+
+
 @media screen and (min-width: 0px ) {
 
     .section {flex-basis: 55%;
@@ -484,21 +578,24 @@ nav li:not(li:first-child){
 
 .direction {
 
-    height: 91px;
+    height: 89px;
     width: 187px;
+    overflow: hidden;
 }
 
 .artName {
     padding-left: 0;
     max-width: 281px;
-    max-height: 120px;
+    height: 89px;
+    overflow: hidden;
   
 }
 
 .textContainer {
 
     max-height: 92px;
-    gap: 16rem;
+    gap: 6rem;
+
   
 
 
@@ -521,10 +618,22 @@ nav li:not(li:first-child){
         margin-bottom: 4rem;
         overflow: auto;
     }
+    
+
+
+   
+   .multi-view {
+
+        max-height: 345px;
+    }
 
     .container {
 
         max-height: 345px;
+    }
+
+    footer {
+        margin-top: 25rem;
     }
 
 
@@ -542,7 +651,7 @@ nav li:not(li:first-child){
     
     .direction {
     
-        height: 91px;
+        height: 89px;
     }
     
     .artName {

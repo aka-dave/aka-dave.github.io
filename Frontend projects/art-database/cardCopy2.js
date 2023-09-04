@@ -16,6 +16,8 @@ const artImage = document.querySelector('.second img');
 const cardSearch = document.querySelector('.cardSearch button');
 
 
+
+
 wrapperDiv = document.querySelector('.screen');
 containerDiv = document.querySelector('.container');
 sectionDiv = document.querySelector('.section');
@@ -48,6 +50,12 @@ var num = 0;
 var start;
 
 
+
+
+
+
+
+
 function orderChange(x) {
 
     if(x.matches){
@@ -75,44 +83,45 @@ function orderChange(x) {
 
 
 
-    async function drawCard() {
 
 
-        const url = `https://cardbackend-48584104be46.herokuapp.com/api/author/default/card_images`
-       
-        if(resCardIMG.length == 0){
-          
-    
-            alert('You have reached the end of the deck')
-            card.src = "images/faceDownCardNEW1.jpg" 
-            var p = await fetch(url);
-            resCardIMG =  await p.json()
-        }
-        else {
-    
-    
-            
-            
-    
-            
-            var  num = Math.floor(Math.random() * resCardIMG.length)
-    
-            card.src = resCardIMG[num].card_url;
-            resCardIMG.splice(num, 1);
-    
+async function drawCard() {
+
+
+    const url = `https://cardbackend-48584104be46.herokuapp.com/api/author/default/card_images`
+   
+    if(resCardIMG.length == 0){
+      
+
+        alert('You have reached the end of the deck')
+        card.src = "images/faceDownCardNEW1.jpg" 
+        var p = await fetch(url);
+        resCardIMG =  await p.json()
+    }
+    else {
+
+
         
-    
-    
-    
-           
         
-        }
+
+        
+        var  num = Math.floor(Math.random() * resCardIMG.length)
+
+        card.src = resCardIMG[num].card_url;
+        resCardIMG.splice(num, 1);
+
+    
+
+
+
        
-    
-    
     
     }
-    
+   
+
+
+
+}
 
 
 
@@ -209,8 +218,10 @@ const promise = await fetch(url)
 
 initialFetch();
 
-
 card.addEventListener("click", drawCard);
+
+
+
 adr.addEventListener("click", function(e) {
     e.preventDefault();
 })
@@ -318,6 +329,10 @@ function update () {
 
     des[0].innerHTML = `${artist}'s art:`
     des[1].innerHTML = `${galleryImgs[0].alt} `
+
+
+
+    
     
 
     
@@ -457,6 +472,7 @@ function update () {
     else{
         artist = resIMG[0].name;
 
+
         state++;
 
       
@@ -490,7 +506,7 @@ function update () {
     
 
 
-    
+     platform.classList.remove('show');
 
 
 
@@ -541,15 +557,22 @@ function update () {
      resCardIMG = await promiseCardIMG.json();
 
 
-
+   
     
 
      if(resCardIMG[0].category != "other") { 
 
 
+
+
         drawCardCategory(resCardIMG);
 
         card.addEventListener('click', drawCardCategory);
+
+        wrapperDiv.style.background = `url("images/Mago\ negro.jpg")`;
+        
+
+        // to add specific css background images/colour for specifc genres in category e.g yugioh, pokemon I can add If statements here
 
 
 
@@ -1407,13 +1430,16 @@ cardSearch.addEventListener('click', function() {
     const author = document.querySelector('.authors select');
     const enterCard = document.querySelector('.enterCard input');
 
+
+    wrapperDiv.style.background = `rgb(219, 213, 213)`;
+
    
 
     // alert(author.value)
 
         if(author.value!= 'Select One' && enterCard.value!= ''){
             loader.classList.add('start');
-           
+            platform.classList.remove('show');
 
             // alert("name and card");
 
@@ -1427,6 +1453,7 @@ cardSearch.addEventListener('click', function() {
 
         if(enterCard.value!= '' && author.value == 'Select One') {
             loader.classList.add('start');
+           
 
 
             // alert("just card");
@@ -1436,6 +1463,7 @@ cardSearch.addEventListener('click', function() {
 
         if(author.value!= 'Select One' && enterCard.value == ''){
             loader.classList.add('start');
+            platform.classList.remove('show');
 
             // alert("just author");
             justAuthor(author.value);
