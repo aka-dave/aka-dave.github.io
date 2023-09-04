@@ -100,8 +100,9 @@ nav li:not(li:first-child){
     display: flex;
     gap: 32rem;
     justify-content: end;
+    background-color: black;
     /* background-color: grey; */
-    background-color: rgb(32, 29, 29);
+    /* background-color: rgb(32, 29, 29); */
     font-family: 'Signika Negative', sans-serif;
     margin-bottom: 1rem;
    
@@ -446,8 +447,9 @@ nav li:not(li:first-child){
   
     flex-flow: nowrap;
     /* background-color: rgb(219, 213, 213); */
-    background-color: #5C0C26;
+    /* background-color: #5C0C26; */
     /* background-image: url(images/Mago\ negro.jpg); */
+
 
    
    justify-content: space-between;
