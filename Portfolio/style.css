@@ -327,7 +327,7 @@ footer ul {
 
 
 @media(max-width: 800px) {
-  .proj, .proj-frontend {
+  .proj, .proj-frontend, .proj-fullstack {
    text-align: center;
    align-items: center;
     display: block;
