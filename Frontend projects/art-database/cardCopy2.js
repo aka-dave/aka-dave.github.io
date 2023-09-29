@@ -108,6 +108,7 @@ async function drawCard() {
         var  num = Math.floor(Math.random() * resCardIMG.length)
 
         card.src = resCardIMG[num].card_url;
+        card.alt = "images/faceDownCardNEW1.jpg"; 
         resCardIMG.splice(num, 1);
 
     
@@ -146,6 +147,7 @@ var url = `https://cardbackend-48584104be46.herokuapp.com/api/Author/ImagesAll?p
             var  num = Math.floor(Math.random() * resCardIMG.length)
 
             card.src = resCardIMG[num].art_url;
+            card.alt = "images/faceDownCardNEW1.jpg"; 
             resCardIMG.splice(num, 1);
 
     }
@@ -177,6 +179,7 @@ async function drawCardOtherPartial() {
                 var  num = Math.floor(Math.random() * resCardIMG.length)
     
                 card.src = resCardIMG[num].art_url;
+                card.alt = "images/faceDownCardNEW1.jpg"; 
                 resCardIMG.splice(num, 1);
     
         }
@@ -197,6 +200,7 @@ function drawCardCategory() {
     else {
 
         card.src = resCardIMG[counter[0]].card_url;
+        card.alt = "images/faceDownCardNEW1.jpg"; 
         counter[0] = counter[0] + 1;
     }
 
@@ -530,6 +534,9 @@ function update () {
             
 
             for(let i=0; i<socialKeys.length; i++) {
+
+
+                
 
                 var li = document.createElement('li');
                 var link = document.createElement('a');
