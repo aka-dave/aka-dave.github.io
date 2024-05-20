@@ -1449,6 +1449,11 @@ cardSearch.addEventListener('click', function() {
             platform.classList.remove('show');
 
             // alert("name and card");
+            gtag('event', 'search', {
+                'event_category': 'Search',
+                'event_label': enterCard.value,
+                'value': author.value
+              });
 
             
             nameAndCard(author.value, enterCard.value);
@@ -1464,6 +1469,11 @@ cardSearch.addEventListener('click', function() {
 
 
             // alert("just card");
+            gtag('event', 'search', {
+                'event_category': 'Search',
+                'event_label': enterCard.value,
+                'value': author.value
+              });
             justName(enterCard.value);
 
         }
@@ -1473,6 +1483,14 @@ cardSearch.addEventListener('click', function() {
             platform.classList.remove('show');
 
             // alert("just author");
+
+            gtag('event', 'search', {
+                'event_category': 'Search',
+                'event_label': enterCard.value,
+                'value': author.value
+              });
+
+
             justAuthor(author.value);
         }
 
